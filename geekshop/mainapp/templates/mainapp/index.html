@@ -1,0 +1,28 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block menu %}
+  {% include 'mainapp/includes/inc__main_menu.html' %}
+{% endblock menu %}
+
+{% block heading %}
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">EGallery</h1>
+      <p class="lead text-muted">Магазин живописи, новая страница в истории живописи</p>
+      <p><a href="/products/" class="btn btn-success my-2">Узнать больше</a></p>
+    </div>
+  </section>
+{% endblock heading %}
+
+{% block content %}
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <img class="img-fluid" src="{% static 'img/index/example.jpg' %}" alt="EGallery image example">
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

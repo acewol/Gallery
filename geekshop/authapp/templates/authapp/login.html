@@ -1,0 +1,28 @@
+{% extends 'authapp/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="album py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <h1 class="text-center">Вход</h1>
+          <br>
+          <form class="form-horizontal" method="post">
+            {% csrf_token %}
+            {% if next %}
+              <input type="hidden" name="next" value="{{ next }}">
+            {% endif %}
+            {{ form.as_p }}
+            <br>
+            <input class="btn btn-success form-control" type="submit" value="Войти">
+          </form>
+          <hr>
+          <a class="btn btn-primary form-control" href="{% url 'auth:register' %}">Регистрация</a>
+        </div>
+        <div class="col-md-3"></div>
+      </div><!--row-->
+    </div><!--container-->
+  </div>
+{% endblock content %}

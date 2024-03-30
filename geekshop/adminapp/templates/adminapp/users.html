@@ -1,0 +1,65 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="album py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center">Пользователи</h1>
+          <br>
+          <div class="users-list">
+            <div class="text-center">
+              <a href="{% url 'admin:user_create' %}">
+                <button class="btn btn-success">Новый пользователь</button>
+              </a>
+            </div>
+            <br>
+            <table class="table">
+              <thead>
+                <th scope="col">Аватар</th>
+                <th scope="col">Логин</th>
+                <th scope="col">Роль</th>
+                <th scope="col">Имя</th>
+                <th scope="col">Фамилия</th>
+                <th scope="col">Возраст</th>
+                <th scope="col">Email</th>
+                <th scope="col">Последний вход</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </thead>
+              <tbody>
+                {% for object in objects %}
+                  <tr {% if not object.is_active %}class="font-weight-light"{% endif %}>
+                    <td>
+                      <img src="/media/{{ object.avatar|default:'users_avatars/default.jpg' }}" 
+                      alt="{{ object.username }}"
+                      style="max-width: 80px">
+                    </td>
+                    <td class="font-weight-bold">{{ object.username }}</td>
+                    <td>{% if object.is_superuser %}Администратор{% else %}Пользователь{% endif %}</td>
+                    <td>{{ object.first_name|capfirst }}</td>
+                    <td>{{ object.last_name|capfirst }}</td>
+                    <td>{{ object.age }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ object.last_login }}</td>
+                    <td>
+                      <a href="{% url 'admin:user_update' object.pk %}">
+                        <button class="btn btn-warning">Редактировать</button>
+                      </a>
+                    </td>
+                    <td>
+                      <a href="{#% url 'admin:user_delete' object.pk %#}">
+                        <button class="btn btn-danger">Удалить</button>
+                      </a>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div><!--col-md-12-->
+      </div><!--row-->
+    </div><!--container-->
+  </div>
+{% endblock content %}

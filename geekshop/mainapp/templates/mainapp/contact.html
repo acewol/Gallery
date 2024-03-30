@@ -1,0 +1,42 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block menu %}
+  {% include 'mainapp/includes/inc__main_menu.html' %}
+{% endblock menu %}
+
+{% block heading %}
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Контакты</h1>
+      <p class="lead text-muted">Связаться с нами</p>
+    </div>
+  </section>
+{% endblock heading %}
+
+{% block content %}
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 text-right">
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-light"><span class="float-left contact-header"><strong>{{ contacts.address.key }}</strong></span>{{ contacts.address.val }}</li>
+            <li class="list-group-item list-group-item-success"><span class="float-left contact-header"><strong>{{ contacts.phone.key }}</strong></span>{{ contacts.phone.val }}</li>
+            <li class="list-group-item list-group-item-light"><span class="float-left contact-header"><strong>{{ contacts.mail.key }}</strong></span><a href="mailto:{{ contacts.mail.val }}">shura.evstigneev@list.ru</a></li>
+            <li class="list-group-item list-group-item-success"><span class="float-left contact-header"><strong>{{ contacts.shipping.key }}</strong></span>{{ contacts.shipping.val }}</li>
+          </ul>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+
+      <br><hr><br>
+      
+      <div class="row">
+        <div class="col-md-12">
+          <img src="{% static 'img/contact/map.png' %}" alt="Mup" class="img-fluid">
+        </div>
+      </div><!--row-->
+    </div><!--container-->
+  </div><!--album-->
+{% endblock content %}

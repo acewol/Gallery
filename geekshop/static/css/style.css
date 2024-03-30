@@ -1,0 +1,28 @@
+img.card-img-top:hover {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+div#map {
+  padding-bottom: 1rem;
+}
+
+.contact-header {
+  font-variant: small-caps;
+}
+
+.abs-center-x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#id_avatar, #id_image {
+  line-height: 1em;
+}
+
+input:required {
+  background: rgb(251, 253, 216);
+}

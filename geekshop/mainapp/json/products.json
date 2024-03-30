@@ -1,0 +1,182 @@
+[
+  {
+    "name": "отдых на пляже",
+    "category": "пейзаж",
+    "image": "products_images/1_small.jpg",
+    "short_description": "Фото Отдых на пляже",
+    "full_description": "На данном снимке запечатлен красивый пляжный пейзаж",
+    "price": 5000,
+    "stock": 20
+  },
+  {
+    "name": "торжество жизни",
+    "category": "пейзаж",
+    "image": "products_images/2_small.jpg",
+    "short_description": "Фото Торжество жизни",
+    "full_description": "На снимке запечатлены зеленые ростки, пробивающие сквозь твердый и сухой асфальт себе путь к солнцу",
+    "price": 10000,
+    "stock": 10
+  },
+  {
+    "name": "прогулка на исходе дня",
+    "category": "пейзаж",
+    "image": "products_images/3_small.jpg",
+    "short_description": "Фотография Прогулка на исходе дня",
+    "full_description": "Герой снимка - забавная собака-терьер, бегущая по земле на фоне облачного неба и начинающегося заката солнца",
+    "price": 6500,
+    "stock": 20
+  },
+  {
+    "name": "домик у моря",
+    "category": "пейзаж",
+    "image": "products_images/4_small.jpg",
+    "short_description": "Фотография Домик у моря",
+    "full_description": "Снимок показывает вид сверху на линию домов, расположенных в буквальном смысле на морской воде",
+    "price": 8200,
+    "stock": 14
+  },
+  {
+    "name": "жизнь на воде",
+    "category": "пейзаж",
+    "image": "products_images/5_small.jpg",
+    "short_description": "Фотография Жизнь на воде",
+    "full_description": "На фотографии показаны несколько домов, похожих между собой и расположенных вплотную друг к другу. Они стоят в буквальном смысле на воде, в безмятежной водной глади отражается небо",
+    "price": 7300,
+    "stock": 17
+  },
+  {
+    "name": "накануне шторма",
+    "category": "пейзаж",
+    "image": "products_images/6_small.jpg",
+    "short_description": "Фотография Накануне шторма",
+    "full_description": "На снимке запечатлен морской пейзаж. Небо покрыто густыми грозовыми штормовыми тучами и вдалеке видна вспышка разряда молнии",
+    "price": 8900,
+    "stock": 6
+  },
+  {
+    "name": "декор",
+    "category": "рисунок",
+    "image": "products_images/7_small.jpg",
+    "short_description": "Картина Декор",
+    "full_description": "На картине изображен креативный вариант оформления стены",
+    "price": 10200,
+    "stock": 7
+  },
+  {
+    "name": "тропик",
+    "category": "рисунок",
+    "image": "products_images/8_small.jpg",
+    "short_description": "Картина Тропик",
+    "full_description": "В центре картины ананас, окрашенный в необычные цвета",
+    "price": 9300,
+    "stock": 10
+  },
+  {
+    "name": "малахит",
+    "category": "рисунок",
+    "image": "products_images/9_small.jpg",
+    "short_description": "Картина Малахит",
+    "full_description": "На картине изображены абстрактные фигуры в цветовой гамме зеленого и черного",
+    "price": 8400,
+    "stock": 18
+  },
+  {
+    "name": "от сердца",
+    "category": "рисунок",
+    "image": "products_images/10_small.jpg",
+    "short_description": "От сердца",
+    "full_description": "Картина изображает фон-граффити в формате сердец различного цвета",
+    "price": 9100,
+    "stock": 9
+  },
+  {
+    "name": "экспрессия",
+    "category": "рисунок",
+    "image": "products_images/11_small.jpg",
+    "short_description": "Картина Экспрессия",
+    "full_description": "Абстрактная работа художника в ярких тонах",
+    "price": 4400,
+    "stock": 2
+  },
+  {
+    "name": "на фоне пламени",
+    "category": "люди",
+    "image": "products_images/12_small.jpg",
+    "short_description": "Фото девушки",
+    "full_description": "На фото изображена девушка в черном одежде на фоне горящего огня, что создает интересный цветовой контраст",
+    "price": 8200,
+    "stock": 13
+  },
+  {
+    "name": "удачный кадр",
+    "category": "люди",
+    "image": "products_images/13_small.jpg",
+    "short_description": "Фото молодого человека",
+    "full_description": "На фото молодой человек с камерой в руках на зеленом природном фоне",
+    "price": 7900,
+    "stock": 8
+  },
+  {
+    "name": "закат у моря",
+    "category": "люди",
+    "image": "products_images/14_small.jpg",
+    "short_description": "Фото девушки у моря",
+    "full_description": "На фото изображена девушка, которая снимает живописный закат и вид на море",
+    "price": 9200,
+    "stock": 17
+  },
+  {
+    "name": "телефонный разговор",
+    "category": "люди",
+    "image": "products_images/15_small.jpg",
+    "short_description": "Фото с телефоном",
+    "full_description": "На фото изображена девушка, которая говорит по мобильному телефону",
+    "price": 5000,
+    "stock": 9
+  },
+  {
+    "name": "камера",
+    "category": "техника",
+    "image": "products_images/16_small.jpg",
+    "short_description": "Фото техники для съемки",
+    "full_description": "На фото изображена камера, закрепленная на штативе и направленная в сторону заходящего солнца",
+    "price": 6000,
+    "stock": 11
+  },
+  {
+    "name": "студия звукозаписи",
+    "category": "техника",
+    "image": "products_images/17_small.jpg",
+    "short_description": "Музыкальное оборудование",
+    "full_description": "На фото изображено оборудование для записи и обработки звука",
+    "price": 11000,
+    "stock": 3
+  },
+  {
+    "name": "гитарный звук",
+    "category": "техника",
+    "image": "products_images/18_small.jpg",
+    "short_description": "Фото гитарных приборов",
+    "full_description": "На фото изображен набор устройств для обработки электронного гитарного звука",
+    "price": 12100,
+    "stock": 15
+  },
+  {
+    "name": "черное авто",
+    "category": "техника",
+    "image": "products_images/19_small.jpg",
+    "short_description": "Фото автомобиля черного цвета",
+    "full_description": "На фото изображен черный автомобиль на парковочной стоянке",
+    "price": 9900,
+    "stock": 10
+  },
+  {
+    "name": "экран смартфона",
+    "category": "техника",
+    "image": "products_images/20_small.jpg",
+    "short_description": "Фото смартфона",
+    "full_description": "На фото показан смартфон, экран которого светится в темноте",
+    "price": 8100,
+    "stock": 7
+  }
+]

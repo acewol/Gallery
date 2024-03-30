@@ -1,0 +1,40 @@
+<div class="basket-list">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Превью</th>
+        <th scope="col">Название</th>
+        <th scope="col">Категория</th>
+        <th scope="col">Цена</th>
+        <th scope="col">Количество</th>
+        <th scope="col">Итог</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in basket_items %}
+        <tr>
+          <td><img src="/media/{{ item.product.image }}" alt="{{ item.product.short_description }}" style="max-width: 100px"></td>
+          <td>{{ item.product.name|capfirst }}</td>
+          <td>{{ item.product.category|capfirst }}</td>
+          <td>{{ item.product.price|floatformat:0 }}</td>
+          <td><input type="number" name="{{ item.pk }}" min="0" value="{{ item.quantity }}"></td>
+          <td>{{ item.product_cost|floatformat:0 }}</td>
+          <td>
+            <a href="{% url 'basket:remove' item.pk %}">
+              <button class="btn btn-sm btn-outline-secondary">Удалить</button>
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <hr>
+  {% if basket_items %}
+    <div>
+      <p class="text-center">
+        В корзине {{ basket_items.0.total_quantity }} товаров общей стоимостью {{ basket_items.0.total_cost|floatformat:0 }} руб
+      </p>
+    </div>
+  {% endif %}
+</div>
