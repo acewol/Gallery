@@ -2,27 +2,31 @@
 {% load static %}
 
 {% block js %}
-  <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
 {% endblock js %}
 
 {% block content %}
-  <div class="album py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-          <h1 class="text-center">Корзина</h1>
-          <br>
-          {% include 'basketapp/includes/inc__basket_list.html' %}
-          <br>
-          <div class="text-center">
-            <a href="{% url 'main:products' %}">
-              <button class="btn btn-info">Продолжить покупки</button>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-1"></div>
-      </div><!--row-->
-    </div><!--container-->
-  </div>
+    <div class="album py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <h1 class="text-center">Корзина</h1>
+                    <br>
+                    {% include 'basketapp/includes/inc__basket_list.html' %}
+                    <br>
+                    <div class="text-center">
+                        <a href="{% url 'main:products' %}">
+                            <button class="btn btn-info">Продолжить покупки</button>
+                        </a>
+                    </div>
+                    <form method="post">
+                        {% csrf_token %}
+                        <button value="111{{ basket_items.0.total_cost|floatformat:0 }}" name="111{{ basket_items.0.total_quantity }}" type="submit" id="cart-btn">Оформить заказ</button>
+                    </form>
+                </div>
+                <div class="col-md-1"></div>
+            </div><!--row-->
+        </div><!--container-->
+    </div>
 {% endblock content %}

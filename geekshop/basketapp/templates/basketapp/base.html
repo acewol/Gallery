@@ -2,58 +2,64 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     {% block meta %}
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="">
-      <meta name="author" content="">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
     {% endblock meta %}
 
     <title>
-      {% block title %}
-        {{ title|capfirst }}
-      {% endblock title %}
+        {% block title %}
+            {{ title|capfirst }}
+        {% endblock title %}
     </title>
 
     {% block css %}
-      <link rel="icon" href="{% static 'img/favicon.ico' %}">
-      <!-- Bootstrap core CSS -->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-      <!-- Bootstrap styles -->
-      <link rel="stylesheet" href="{% static 'css/bootstrap/album.css' %}">
-      <!-- Custom styles -->
-      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="icon" href="{% static 'img/favicon.ico' %}">
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+              crossorigin="anonymous">
+        <!-- Bootstrap styles -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap/album.css' %}">
+        <!-- Custom styles -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock css %}
 
     {% block js %}
     {% endblock js %}
-  </head>
+</head>
 
-  <body>
-    {% block menu %}
-      {% include 'mainapp/includes/inc__main_menu.html' %}
-    {% endblock menu %}
+<body>
+{% block menu %}
+    {% include 'mainapp/includes/inc__main_menu.html' %}
+{% endblock menu %}
 
-    <main role="main">
-      {% block heading %}
-      {% endblock heading %}
-      
-      {% block content %}
-      {% endblock content %}
-    </main>
+<main role="main">
+    {% block heading %}
+    {% endblock heading %}
 
-    {% block footer %}
-      {% include 'mainapp/includes/inc__footer.html' %}
-    {% endblock footer %}
+    {% block content %}
+    {% endblock content %}
+</main>
 
-    {% block js_bootstrap %}
-      <!-- Bootstrap core JavaScript
-      ================================================== -->
-      <!-- Placed at the end of the document so the pages load faster -->
-      <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    {% endblock js_bootstrap %}
-  </body>
+{% block footer %}
+    {% include 'mainapp/includes/inc__footer.html' %}
+{% endblock footer %}
+
+{% block js_bootstrap %}
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+{% endblock js_bootstrap %}
+</body>
 </html>
