@@ -69,4 +69,3 @@ def edit(request):
     }
     return render(request, 'authapp/edit.html', context)
 
-# joapjopajopa

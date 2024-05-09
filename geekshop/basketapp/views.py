@@ -53,7 +53,7 @@ class Index(TemplateView):
             new_basket_item.product.add(product_list[i].product)
 
         new_basket_item.save()
-
+        # MAIL PUSH
         return super(Index, self).get(request, *args, **kwargs)
 
 @login_required
