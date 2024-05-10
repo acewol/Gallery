@@ -1,3 +1,4 @@
+from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
@@ -22,6 +23,13 @@ def index(request):
         'menu': MENU_ITEMS,
         'basket': get_basket(request),
     }
+
+    send_mail(
+        subject="ведите свой заголовок сюда",
+        message="твою мать ебали волки",
+        from_email='mypraktik1@gmail.com',
+        recipient_list=['yarikbocc2015@gmail.com']
+    )
     
     return render(request, 'mainapp/index.html', context)
 

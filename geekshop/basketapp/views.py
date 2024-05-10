@@ -1,3 +1,4 @@
+from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
@@ -7,6 +8,7 @@ from basketapp.models import Basket, Cart
 from django.views.generic import TemplateView
 from mainapp.models import Product
 from mainapp.views import get_basket
+import geekshop.settings
 
 
 
@@ -52,8 +54,22 @@ class Index(TemplateView):
         for i in range(product_list.count()):
             new_basket_item.product.add(product_list[i].product)
 
+
+        msg = f"Добрый день!\n" \
+              f"Вы заказали дохуя всего на сайте сочные_мамки.ком\n" \
+              f"Общее количество товаров - {quantity}\n" \
+              f"Общая стоимость - {price}\n"
+
+        for i in range(product_list.count()):
+            msg += f"\n{product_list[i].product.name}"
+
         new_basket_item.save()
-        # MAIL PUSH
+        send_mail(
+            subject="ведите свой заголовок сюда",
+            message=msg,
+            from_email='mypraktik1@gmail.com',
+            recipient_list=['yarikbocc2015@gmail.com']
+        )
         return super(Index, self).get(request, *args, **kwargs)
 
 @login_required
