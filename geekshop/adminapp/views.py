@@ -3,7 +3,7 @@ from django.urls import reverse
 from authapp.models import ShopUser
 from django.contrib.auth.decorators import user_passes_test
 from mainapp.models import Product, ProductCategory
-from adminapp.forms import ShopUserRegisterAdminForm, ShopUserEditAdminForm, CategoryEditAdminForm, ProductEditAdminForm
+from adminapp.forms import ShopUserRegisterAdminForm, ShopUserEditAdminForm, CategoryEditAdminForm, ProductEditAdminForm, ProductAuctionEditAdminForm
 
 
 @user_passes_test(lambda x: x.is_superuser)
@@ -145,7 +145,7 @@ def product_create(request):
         'form': product_form,
     }
 
-    return render(request, 'adminapp/product_update.html', context)
+    return render(request, 'adminapp/product_create.html', context)
 
 
 @user_passes_test(lambda x: x.is_superuser)
@@ -167,3 +167,24 @@ def product_update(request, product_pk):
     }
 
     return render(request, 'adminapp/product_update.html', context)
+
+
+@user_passes_test(lambda x: x.is_superuser)
+def product_update_auction(request, product_pk):
+    title = 'Аукцион | Редактирование'
+    product = get_object_or_404(Product, pk=product_pk)
+
+    if request.method == 'POST':
+        product_form = ProductAuctionEditAdminForm(request.POST, request.FILES, instance=product)
+        if product_form.is_valid():
+            product_form.save()
+            return HttpResponseRedirect(reverse('admin:categories'))
+    else:
+        product_form = ProductAuctionEditAdminForm(instance=product)
+
+    context = {
+        'title': title,
+        'form': product_form,
+    }
+
+    return render(request, 'adminapp/product_update_auction.html', context)

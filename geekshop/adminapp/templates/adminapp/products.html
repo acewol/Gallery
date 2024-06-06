@@ -2,64 +2,76 @@
 {% load static %}
 
 {% block content %}
-  <div class="album py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="text-center">Продукты</h1>
-          <br>
-          <div class="users-list">
-            <div class="text-center">
-              <a href="{% url 'admin:product_create' %}">
-                <button class="btn btn-success">Новый продукт</button>
-              </a>
-            </div>
-            <br>
-            <table class="table">
-              <thead>
-                <th scope="col">Превью</th>
-                <th scope="col">Название</th>
-                <th scope="col">Цена</th>
-                <th scope="col">Количество</th>
-                <th scope="col">Описание</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-              </thead>
-              <tbody>
-                {% for object in objects %}
-                  <tr {% if not object.is_active %}class="font-weight-light"{% endif %}>
-                    <td>
-                      <img src="/media/{{ object.image|default:'products_images/default.jpg' }}" 
-                      alt="{{ object.name|capfirst }}"
-                      style="max-width: 80px">
-                    </td>
-                    <td>{{ object.name|capfirst }}</td>
-                    <td>{{ object.price|floatformat:0 }}</td>
-                    <td>{{ object.stock }}</td>
-                    <td>{{ object.short_description|capfirst }}</td>
-                    <td>
-                      <a href="{% url 'main:product' object.pk %}">
-                        <button class="btn btn-primary">Подробнее</button>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="{% url 'admin:product_update' object.pk %}">
-                        <button class="btn btn-warning">Редактировать</button>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="{#% url 'admin:product_delete' object.pk %#}">
-                        <button class="btn btn-danger">Удалить</button>
-                      </a>
-                    </td>
-                  </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-        </div><!--col-md-12-->
-      </div><!--row-->
-    </div><!--container-->
-  </div>
+    <div class="album py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center">Продукты</h1>
+                    <br>
+                    <div class="users-list">
+                        <div class="text-center">
+                            <a href="{% url 'admin:product_create' %}">
+                                <button class="btn btn-success">Новый продукт</button>
+                            </a>
+                        </div>
+                        <br>
+                        <table class="table">
+                            <thead>
+                            <th scope="col">Превью</th>
+                            <th scope="col">Название</th>
+                            <th scope="col">Цена</th>
+                            <th scope="col">Количество</th>
+                            <th scope="col">Описание</th>
+                            <th scope="col">На аукционе</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            </thead>
+                            <tbody>
+                            {% for object in objects %}
+                                <tr {% if not object.is_active %}class="font-weight-light"{% endif %}>
+                                    <td>
+                                        <img src="/media/{{ object.image|default:'products_images/default.jpg' }}"
+                                             alt="{{ object.name|capfirst }}"
+                                             style="max-width: 80px">
+                                    </td>
+                                    <td>{{ object.name|capfirst }}</td>
+                                    <td>{{ object.price|floatformat:0 }}</td>
+                                    <td>{{ object.stock }}</td>
+                                    <td>{{ object.short_description|capfirst }}</td>
+                                    {% if object.auction %}
+                                        <td>Выставлен</td>
+                                    {% else %}
+                                        <td>Не выставлен</td>
+                                    {% endif %}
+                                    <td>
+                                        <a href="{% url 'main:product' object.pk %}">
+                                            <button class="btn btn-primary">Подробнее</button>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'admin:product_update' object.pk %}">
+                                            <button class="btn btn-warning">Редактировать</button>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'admin:product_update_auction' object.pk %}">
+                                            <button class="btn btn-warning">Аукцион</button>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{#% url 'admin:product_delete' object.pk %#}">
+                                            <button class="btn btn-danger">Удалить</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!--col-md-12-->
+            </div><!--row-->
+        </div><!--container-->
+    </div>
 {% endblock content %}

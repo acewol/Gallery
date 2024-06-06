@@ -1,0 +1,29 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="album py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <h1 class="text-center">Редактирование на аукцион</h1>
+          <br>
+          <form class="form-horizontal" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <input class="btn btn-success form-control" type="submit" value="Сохранить">
+          </form>
+          <br>
+          <div class="text-center">
+            <a href="{% url 'admin:categories' %}">
+              <button class="btn btn-info">К списку категорий</button>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div><!--row-->
+    </div><!--container-->
+  </div>
+{% endblock %}

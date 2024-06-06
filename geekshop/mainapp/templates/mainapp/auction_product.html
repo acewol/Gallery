@@ -1,0 +1,55 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block menu %}
+    {% include 'mainapp/includes/inc__main_menu.html' %}
+{% endblock menu %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <h1 class="text-center">{{ product.name|capfirst }}</h1>
+                        <br>
+                        <img class="rounded mx-auto d-block" src="/media/{{ product.image }}"
+                             alt="{{ product.short_description }}">
+                        <br>
+                        <p class="text-center">{{ product.full_description }}</p>
+                        <br>
+                        <ul class="list-group text-right">
+                            <li class="list-group-item list-group-item-light"><span
+                                    class="float-left contact-header"><strong>Категория</strong></span>{{ product.category.name|capfirst }}
+                            </li>
+                            <li class="list-group-item list-group-item-light"><span
+                                    class="float-left contact-header"><strong>Время начала аукциона</strong></span>{{ product.auction_time_start }}
+                            </li>
+                            <li class="list-group-item list-group-item-light"><span
+                                    class="float-left contact-header"><strong>Время окончания аукциона</strong></span>{{ product.auction_time_end }}
+                            </li>
+                            <li class="list-group-item list-group-item-success"><span
+                                    class="float-left contact-header"><strong>Текущая ставка</strong></span>{{ product.auction_current_cost|floatformat:0 }}
+                            </li>
+                            <li class="list-group-item list-group-item-success"><span
+                                    class="float-left contact-header"><strong>Минимальная ставка</strong></span>{{ product.auction_bet|floatformat:0 }}
+                            </li>
+                        </ul>
+
+                        <br>
+                        <label>{{ error }}</label>
+                        <br>
+                        <label for="bet">Сделайте вашу ставку. Минимальная -
+                            {{ product.auction_bet|floatformat:0 }}</label><br>
+                        <input type="text" id="bet" name="bet"><br><br>
+                        <button type="submit" class="btn btn-primary">Сделать ставку</button>
+
+                    </div>
+                    <div class="col-md-3"></div>
+                </div><!--row-->
+            </div><!--container-->
+        </div><!--album-->
+    </form>
+{% endblock content %}

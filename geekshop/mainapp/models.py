@@ -1,4 +1,7 @@
 from django.db import models
+from django.utils import timezone
+from authapp.models import ShopUser
+
 
 class ProductCategory(models.Model):
     name = models.CharField(verbose_name='наименование категории', max_length=64, unique=True)
@@ -18,6 +21,15 @@ class Product(models.Model):
     price = models.DecimalField(verbose_name='цена картины', max_digits=8, decimal_places=2)
     stock = models.PositiveIntegerField(verbose_name='количество в галереи', default=0)
     is_active = models.BooleanField(verbose_name='активен', default=True)
+
+    auction_last_user = models.ForeignKey(ShopUser, on_delete=models.CASCADE, null=True, blank=True)
+
+    auction = models.BooleanField(verbose_name='Выставлен на аукцион', default=False)
+    auction_time_start = models.DateTimeField(verbose_name='Время начала аукциона', default=timezone.now)
+    auction_time_end = models.DateTimeField(verbose_name='Время окончания аукциона', default=timezone.now)
+    auction_bet = models.PositiveIntegerField(verbose_name='Минимальная ставка', default=1000)
+    auction_current_cost = models.PositiveIntegerField(verbose_name='Текущая ставка', default=1000)
+
 
     def __str__(self):
         return f'{self.name} ({self.category.name})'

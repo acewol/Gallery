@@ -9,4 +9,8 @@ urlpatterns = [
     re_path(r'^products/$', mainapp.products, name='products'),
     re_path(r'^products/category/(?P<category_pk>\d+)/$', mainapp.products, name='category'),
     re_path(r'^product/(?P<product_pk>\d+)/$', mainapp.product, name='product'),
+
+    re_path(r'^auction/$', mainapp.auction, name='auction'),
+    re_path(r'^auction_product/(?P<product_pk>\d+)/$', mainapp.auction_product, name='auction_product'),
+
 ]

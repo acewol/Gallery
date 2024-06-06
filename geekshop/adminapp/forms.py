@@ -67,3 +67,15 @@ class ProductEditAdminForm(forms.ModelForm):
         for _, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
             field.help_text = ''
+
+
+class ProductAuctionEditAdminForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ('auction', 'auction_time_start', 'auction_time_end', 'auction_bet', 'auction_current_cost')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for _, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+            field.help_text = ''
